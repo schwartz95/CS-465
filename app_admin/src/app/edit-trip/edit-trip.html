@@ -1,0 +1,12 @@
+<h2>Edit Trip</h2>
+<form [formGroup]="tripForm" (ngSubmit)="submit()" class="row g-3">
+  <div class="col-md-6" *ngFor="let field of fields">
+    <label class="form-label" [for]="field">{{ field }}</label>
+    <input class="form-control" [id]="field" [formControlName]="field">
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary" type="submit">Save</button>
+    <a class="btn btn-secondary" routerLink="/">Cancel</a>
+  </div>
+</form>
+<p class="text-danger" *ngIf="error">{{ error }}</p>
