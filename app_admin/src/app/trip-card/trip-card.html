@@ -10,7 +10,18 @@ alt="trip thumbnail" class="card-img-top">
 {{trip.length}} only {{trip.perPerson|currency:'USD':true}} per person</p>
 <p class="card-text" [innerHTML]="trip.description">
 </p>
-<a class="btn btn-outline-primary" [routerLink]="['/edit-trip', trip.code]">Edit</a>
-<button class="btn btn-outline-danger ms-2" type="button" (click)="deleteTrip()">Delete</button>
-</div>
+<div *ngIf="isLoggedIn()">
+  <a
+    class="btn btn-outline-primary"
+    [routerLink]="['/edit-trip', trip.code]">
+    Edit
+  </a>
+
+  <button
+    class="btn btn-outline-danger ms-2"
+    type="button"
+    (click)="deleteTrip()">
+    Delete
+  </button>
+</div></div>
 </div>
